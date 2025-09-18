@@ -29,10 +29,16 @@ public class JogadorRepository {
         return jogador;
     }
 
-    public List<String> listarCodinomesPorGrupo(GrupoCodinome grupoCodinome) {
+    public List<String> listarCodinomesEmUso(GrupoCodinome grupoCodinome) {
         return jdbcClient.sql("SELECT distinct(codinome) FROM JOGADORES WHERE grupo_codinome = :grupo_codinome")
-                .param("grupo_codinome", grupoCodinome.getNome())
+                .param("grupo_codinome", grupoCodinome.name())
                 .query(String.class)
+                .list();
+    }
+
+    public List<Jogador> listarJogadores() {
+        return jdbcClient.sql("SELECT * from JOGADORES ORDER BY LOWER(nome), id")
+                .query(Jogador.class)
                 .list();
     }
 }

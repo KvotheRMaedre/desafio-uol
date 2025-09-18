@@ -2,6 +2,7 @@ package tech.kvothe.desafio_uol.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.stereotype.Service;
+import tech.kvothe.desafio_uol.exception.GrupoCodinomeIndisponivelException;
 import tech.kvothe.desafio_uol.model.GrupoCodinome;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class CodinomeService {
     public String gerarCodinome(GrupoCodinome grupoCodinome, List<String> codinomeEmUso) throws Exception {
         var codinomesDisponiveis = listarCodinomesDisponiveis(grupoCodinome, codinomeEmUso);
         if (codinomesDisponiveis.isEmpty()) {
-            throw new Exception("Não há codinomes disponíveis para o grupo " + grupoCodinome.getNome());
+            throw new GrupoCodinomeIndisponivelException();
         }
 
         return sortearCodinomes(codinomesDisponiveis);
