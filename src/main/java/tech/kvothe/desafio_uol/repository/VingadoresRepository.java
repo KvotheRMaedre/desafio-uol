@@ -8,7 +8,6 @@ import org.springframework.web.client.RestClient;
 import tech.kvothe.desafio_uol.dto.VingadoresDto;
 import tech.kvothe.desafio_uol.model.GrupoCodinome;
 
-import javax.print.attribute.standard.Media;
 import java.util.List;
 
 public class VingadoresRepository implements CodinomeRepository{
