@@ -1,4 +1,4 @@
-package tech.kvothe.desafio_uol.entity;
+package tech.kvothe.desafio_uol.model;
 
 public enum GrupoCodinome {
     VINGADORES("Vingadores", "https://raw.githubusercontent.com/uolhost/test-backEnd-Java/master/referencias/vingadores.json"),

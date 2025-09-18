@@ -1,4 +1,4 @@
-package tech.kvothe.desafio_uol.entity;
+package tech.kvothe.desafio_uol.model;
 
 public record Jogador(
         String nome,
