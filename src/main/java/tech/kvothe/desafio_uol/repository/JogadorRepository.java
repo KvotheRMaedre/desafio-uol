@@ -24,13 +24,13 @@ public class JogadorRepository {
                 .param("email", jogador.email())
                 .param("telefone", jogador.telefone())
                 .param("codinome", jogador.codinome())
-                .param("grupo_codinome", jogador.grupoCodinome())
+                .param("grupo_codinome", jogador.grupoCodinome().name())
                 .update();
         return jogador;
     }
 
     public List<String> listarCodinomesPorGrupo(GrupoCodinome grupoCodinome) {
-        return jdbcClient.sql("SELECT distinct(codinome) FROM JOGADORES WHERE grupo_codinome = :=grupo_codinome")
+        return jdbcClient.sql("SELECT distinct(codinome) FROM JOGADORES WHERE grupo_codinome = :grupo_codinome")
                 .param("grupo_codinome", grupoCodinome.getNome())
                 .query(String.class)
                 .list();
