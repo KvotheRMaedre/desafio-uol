@@ -21,8 +21,7 @@ public class CodinomeService {
             throw new Exception("Não há codinomes disponíveis para o grupo " + grupoCodinome.getNome());
         }
 
-        var codinomeSorteado = sortearCodinomes(codinomesDisponiveis);
-        return codinomeSorteado;
+        return sortearCodinomes(codinomesDisponiveis);
     }
 
     private List<String> listarCodinomesDisponiveis(GrupoCodinome grupoCodinome, List<String> codinomeEmUso) throws JsonProcessingException {
@@ -36,7 +35,7 @@ public class CodinomeService {
 
     private List<String> buscarCodinomes(GrupoCodinome grupoCodinome) throws JsonProcessingException {
         var codinomeRepository = codinomeRepositoryFactory.create(grupoCodinome);
-        return codinomeRepository.buscarCodinomes();
+        return codinomeRepository.buscarCodinomes().getCodinomes();
     }
 
     private String sortearCodinomes(List<String> codinomesDisponiveis) {

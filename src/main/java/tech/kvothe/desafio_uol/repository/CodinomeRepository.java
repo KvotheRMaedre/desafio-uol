@@ -1,9 +1,10 @@
 package tech.kvothe.desafio_uol.repository;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import tech.kvothe.desafio_uol.dto.CodinomeDto;
 
 import java.util.List;
 
 public interface CodinomeRepository {
-    List<String> buscarCodinomes() throws JsonProcessingException;
+    CodinomeDto buscarCodinomes() throws JsonProcessingException;
 }
